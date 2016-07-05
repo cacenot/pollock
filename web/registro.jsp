@@ -21,7 +21,6 @@
                 background-color: #edeff1;
                 box-shadow: 0 3px 4px 0 rgba(0,0,0,.4);
                 padding: 15px;
-
             }
 
 
@@ -41,7 +40,7 @@
                     <p>${msgErro}</p>
                 </div>
                 </c:if>
-                <form method="post" action="/Pollock/Registro" id="register-form" class="form-control-static">
+                <form method="post" action="<%=request.getContextPath()%>/Registro" id="register-form" class="form-control-static">
                     <div id="ipt-nome" class="form-group">
                         <input id="nome" name="nome" type="text" class="form-control" placeholder="Nome completo" >
                         <span id="ipt-i-nome" class="input-icon "></span>
@@ -53,7 +52,7 @@
                         <input id="senha" name="senha" type="password" class="form-control" placeholder="Senha">
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Criar minha conta</button>
-                    <p class="text-center small-text">Ja tem conta? <a href="/Pollock/Login" class="lead small-text"> LOGIN </a><br>Ou crie usando:</p>
+                    <p class="text-center small-text">Ja tem conta? <a href="<%=request.getContextPath()%>/Login" class="lead small-text"> LOGIN </a><br>Ou crie usando:</p>
                     <a class="btn btn-block btn-social-facebook"><span class="fui-facebook"></span>  Facebook</a>
                     <a class="btn btn-block btn-social-pinterest"><span class="fui-googleplus"></span>  Google</a>
                     <p class="small-text text-center">Conheça nossos <a href="#">Termos de uso</a>.</p>
@@ -76,12 +75,7 @@
                                         nome: "required",
                                         email: {
                                             required: true,
-                                            email: true,
-                                            remote: {
-                                                
-                                                url: '/Pollock/Helper',
-                                                dataType: 'get'
-                                                }
+                                            email: true
                                         },
                                         senha: {
                                             required: true,
@@ -97,7 +91,6 @@
                                         email: {
                                             email: "Por favor insira um email valido",
                                             required: "Por favor insira um email valido",
-                                            remote: "Este email ja esta em uso"
                                         }
                                     },
                                     submitHandler: function (form) {
@@ -108,40 +101,8 @@
                         }
                 //when the dom has loaded setup form validation rules
                 $(D).ready(function ($) {
-                    
-                    $("#nome").blur(function () {
-                        if ($("#nome").val().length < 3) {
-                            $("#ipt-nome").attr("class", "form-group has-error");
-                            $("#ipt-i-nome").attr("class", "input-icon fui-cross-inverted");
-                        }
-                        if ($("#nome").val().length >= 3) {
-                            $("#ipt-nome").attr("class", "form-group has-success");
-                            $("#ipt-i-nome").attr("class", "input-icon fui-check-inverted");
-                        }
-                    });
-                    $("#email").blur(function () {
-                        var iptEmail = $("#email").val().toString();
-                        var emailFilter = /^.+@.+\..{2,}$/;
-                        var illegalChars = /[\(\)\<\>\,\;\:\\\/\"\[\]]/;
-                        if (!(emailFilter.test(iptEmail)) || iptEmail.match(illegalChars) || iptEmail == "") {
-                            $("#ipt-email").attr("class", "form-group has-error");
-                        }
-                        if ((emailFilter.test(iptEmail)) && !(iptEmail.match(illegalChars)) && iptEmail != "") {
-                            $("#ipt-email").attr("class", "form-group has-success");
-                        }
-                    });
-                    $("#senha").blur(function () {
-                        if ($("#senha").val().length < 5) {
-                            $("#ipt-senha").attr("class", "form-group has-error");
-                        }
-                        if ($("#senha").val().length >= 5) {
-                            $("#ipt-senha").attr("class", "form-group has-success");
-                        }
-                    });
-
                     JQUERY4U.UTIL.setupFormValidation();
                 });
-
             })(jQuery, window, document)
 
 

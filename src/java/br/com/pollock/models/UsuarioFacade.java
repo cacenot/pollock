@@ -5,6 +5,11 @@
  */
 package br.com.pollock.models;
 
+import br.com.pollock.util.Util;
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -44,5 +49,23 @@ public class UsuarioFacade extends AbstractFacade<Usuario> {
         .createNamedQuery("Usuario.buscaPorEmail", Usuario.class)
         .setParameter("email", email)
         .getSingleResult();
+    }
+    
+    public boolean autenticarUsuario(String email, String senha){
+        boolean exist = false;
+        try {
+            Usuario usuario = findByEmail(email);
+            String senhaHash = Util.hashSenha(senha);
+            if(usuario.getSenha().equals(senhaHash)){
+                return exist = true;
+            }
+        } catch (NoResultException e) {
+            return exist;
+        } catch (NoSuchAlgorithmException ex) {
+            return exist = false;
+        } catch (UnsupportedEncodingException ex) {
+            return exist = false;
+        }
+        return exist;
     }
 }

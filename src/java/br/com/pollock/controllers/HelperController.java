@@ -30,7 +30,6 @@ public class HelperController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         PrintWriter out = response.getWriter();
-        JsonObject json = new JsonObject();
         request.setCharacterEncoding("utf8");
         response.setCharacterEncoding("utf8");
         response.setContentType("application/json");
@@ -38,19 +37,14 @@ public class HelperController extends HttpServlet {
             String email = request.getParameter("email");
             try {
                 if (usuarioFacade.findEmailTest(email)) {
-                    json.addProperty("valid", Boolean.FALSE);
-                    JsonArray ar = new JsonArray();
-                    ar.add(json);
-                    out.println(ar);
+                    out.println("false");
                     return;
                 } else {
-                    json.addProperty("valid", Boolean.TRUE);
-                    out.println(json);
+                    out.println("true");
                     return;
                 }
             } catch (EJBException ex) {
-                json.addProperty("error", Boolean.TRUE);
-                out.println(json);
+                out.println("true");
                 return;
             }
         }

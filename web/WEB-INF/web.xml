@@ -12,6 +12,10 @@
         <servlet-name>Login</servlet-name>
         <servlet-class>br.com.pollock.controllers.LoginController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AppController</servlet-name>
+        <servlet-class>br.com.pollock.controllers.AppController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Registro</servlet-name>
         <url-pattern>/Registro</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>Helper</servlet-name>
         <url-pattern>/Helper</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AppController</servlet-name>
+        <url-pattern>/App</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

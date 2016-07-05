@@ -1,0 +1,16 @@
+----REQUISITOS
+*falta implementar
+
+
+-- Tela registro
+#validacao back-end
+#validacao front-end*
+#verificacao de email*
+#registro com facebook*
+#registro com google*
+
+-- Tela login
+#validacao back-end
+#validacao front-end*
+#autenticação "continuar logado"
+

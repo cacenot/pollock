@@ -27,6 +27,23 @@
 
         </style>
     </head>
+<%
+    Cookie[] cookies=request.getCookies();
+    String emailVal = "", senhaVal = "",lembrarVal="";
+    if (cookies != null) {
+         for (Cookie cookie : cookies) {
+           if(cookie.getName().equals("cookemail")) {
+             emailVal = cookie.getValue();
+           }
+           if(cookie.getName().equals("cooksenha")){
+             senhaVal = cookie.getValue();
+           }
+           if(cookie.getName().equals("cooklembrar")){
+             lembrarVal = cookie.getValue();
+           }
+        }
+    }
+%>
     <body>
         <div class="dialog">
             <h1><b>Pol</b>lock</h1>
@@ -41,16 +58,27 @@
                         <p>${msgErro}</p>
                     </div>
                 </c:if>
-                <form method="post" action="/Pollock/Login" id="register-form">
+                <form method="post" action="<%=request.getContextPath()%>/Login" id="register-form">
                     <div id="ipt-email" class="form-group">
-                        <input id="email" name="email" type="text" class="form-control" placeholder="Email">
+                        <input id="email" name="email" type="text" class="form-control" placeholder="Email"  value="<%=emailVal%>">
 
                     </div>
                     <div id="ipt-senha" class="form-group">
-                        <input id="senha" name="senha" type="password" class="form-control" placeholder="Senha">
+                        <input id="senha" name="senha" type="password" class="form-control" placeholder="Senha"  value="<%=senhaVal%>">
+                    </div>
+                    <div style="padding-left: 10px;" class="form-group">
+                        <label  class="checkbox" for="lembrar">
+                            <input type="checkbox" id="lembrar" data-toggle="checkbox" class="custom-checkbox" value="1" name="lembrar"
+                            <%= "1".equals(lembrarVal.trim()) ? "checked=\"checked\"" : "" %>>
+                            <span class="icons">
+                                <span class="icon-unchecked"></span>
+                                <span class="icon-checked"></span>
+                            </span>
+                            Continuar conectado
+                        </label>
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Entrar</button>
-                    <p class="text-center small-text">Ainda não tem conta? <a href="/Pollock/Registro" class="lead small-text">REGISTRAR</a></p>
+                    <p class="text-center small-text">Ainda não tem conta? <a href="<%=request.getContextPath()%>/Registro" class="lead small-text">REGISTRAR</a></p>
                     <a class="btn btn-block btn-social-facebook"><span class="fui-facebook"></span>  Entrar com Facebook</a>
                     <a class="btn btn-block btn-social-pinterest"><span class="fui-googleplus"></span>  Entrar com Google</a>
                     <p class="small-text text-center">Conheça nossos <a href="#">Termos de uso</a>.</p>
