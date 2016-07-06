@@ -8,7 +8,7 @@ and open the template in the editor.
     Author     : fernando
 */
 body{
-    background-color: #EEE;
+    background-color: #fff;
     padding: 0;
     margin: 0;
     left: 0;
@@ -27,7 +27,7 @@ h1{
 #page-wrapper {
     padding: 0 15px;
     min-height: 568px;
-    background-color: #fff;
+    background-color: #EEE;
     box-shadow: inset 1px 1px 8px 0px rgba(0,0,0,0.2);
 }
 
@@ -77,11 +77,11 @@ h1{
 
 .sidebar ul{
     margin-top: 5px;
-    background-color: #EEE;
+    background-color: #fff;
 }
 
 .sidebar ul li a:hover{
-    background-color: #EEE;
+    background-color: #fff;
     color: #3D3F4D;
 }
 
@@ -132,7 +132,30 @@ h1{
     margin-left: 25px;
     margin-right: 25px;
     border-radius: 3px;
-    background-color: #EEE;
+    background-color: #fff;
     box-shadow: 0 3px 4px 0 rgba(0,0,0,.4);
     padding: 15px;
+}
+
+.card{
+    margin: 10px;
+    border-radius: 3px;
+    background-color: #fff;
+    box-shadow: 0 3px 4px 0 rgba(0,0,0,.4);
+    padding: 15px;
+}
+
+.card-img{
+    position: absolute;
+    
+}
+
+.card-content{
+    margin-left: 80px;
+}
+
+.card-content h3{
+    font-size: 20px;
+    text-decoration: none;
+    margin: 0;
 }
