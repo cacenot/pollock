@@ -17,7 +17,6 @@ body{
 
 h1{
     font-size: 28px;
-    text-transform: uppercase;
 }
 
 #wrapper {
@@ -129,33 +128,54 @@ h1{
 }
 
 .painel{
-    margin-left: 25px;
-    margin-right: 25px;
-    border-radius: 3px;
+    margin: 15px;
+    border-radius: 5px;
     background-color: #fff;
-    box-shadow: 0 3px 4px 0 rgba(0,0,0,.4);
-    padding: 15px;
+    box-shadow: 0 0px 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0px 0 rgba(0, 0, 0, 0.02);
 }
 
-.card{
-    margin: 10px;
-    border-radius: 3px;
-    background-color: #fff;
-    box-shadow: 0 3px 4px 0 rgba(0,0,0,.4);
-    padding: 15px;
+.painel-inverse{
+    background-color: #34495e;
 }
 
-.card-img{
-    position: absolute;
-    
+.painel-header{
+    padding: 20px;
 }
 
-.card-content{
-    margin-left: 80px;
+.painel-header img{
+    width: 30px;
+    height: 30px;
 }
 
-.card-content h3{
-    font-size: 20px;
-    text-decoration: none;
+.painel-header-left{
+    float: left;
+    padding: 15px 15px 15px 20px;
+}
+
+.painel-header-left img{
+    width: 30px;
+    height: 30px;
+}
+
+.painel-header-left p{
+    font-size: 24px;
+    padding-bottom: 9px;
     margin: 0;
+}
+
+.painel-header p{
+    font-weight: 300;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #34495e;
+}
+
+.painel-content{
+    padding: 30px;
+    padding-top: 0px;
+}
+
+.btn-rounded{
+    border-radius: 50% 50%;
+    font-size: 20px;
 }
